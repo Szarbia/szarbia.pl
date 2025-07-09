@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Prezentacja – Michał Kocerba</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img.slide {
+      max-width: 100%;
+      max-height: 90vh;
+      display: none;
+    }
+    img.active {
+      display: block;
+    }
+    .nav {
+      margin: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <button onclick="prevSlide()">Wstecz</button>
+    <button onclick="nextSlide()">Dalej</button>
+  </div>
+  <img src="slides/slide1.jpg" class="slide active" />
+  <img src="slides/slide2.jpg" class="slide" />
+  <img src="slides/slide3.jpg" class="slide" />
+  <img src="slides/slide4.jpg" class="slide" />
+  <img src="slides/slide5.jpg" class="slide" />
+  <img src="slides/slide6.jpg" class="slide" />
+  <img src="slides/slide7.jpg" class="slide" />
+  <img src="slides/slide8.jpg" class="slide" />
+  <img src="slides/slide9.jpg" class="slide" />
+  <img src="slides/slide10.jpg" class="slide" />
+  <img src="slides/slide11.jpg" class="slide" />
+  <img src="slides/slide12.jpg" class="slide" />
+  <img src="slides/slide13.jpg" class="slide" />
+  <img src="slides/slide14.jpg" class="slide" />
+  <img src="slides/slide15.jpg" class="slide" />
+  
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      if (current < slides.length - 1) {
+        current++;
+        showSlide(current);
+      }
+    }
+
+    function prevSlide() {
+      if (current > 0) {
+        current--;
+        showSlide(current);
+      }
+    }
+  </script>
+</body>
+</html>
